@@ -87,8 +87,8 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 bg-black text-white h-16 sm:h-20 flex items-center px-4 md:px-8 border-b border-neutral-900 transition-all duration-300">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between relative h-full">
         
-        {/* LEFT MENU - Mobile Hamburger only */}
-        <div className="flex md:hidden items-center z-10">
+        {/* LEFT MENU - Mobile & Tablet Hamburger */}
+        <div className="flex lg:hidden items-center z-10">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="w-10 h-10 flex items-center justify-center text-neutral-400 hover:text-white transition-all duration-300 cursor-pointer rounded-full hover:bg-neutral-900/50"
@@ -98,8 +98,8 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* LOGO - Left on Desktop, Center on Mobile */}
-        <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex-shrink-0 flex items-center h-12 md:h-16 z-10">
+        {/* LOGO - Left on Desktop, Center on Mobile/Tablet */}
+        <div className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 flex-shrink-0 flex items-center h-12 lg:h-16 z-10">
           <img
             src={getAssetPath('/logo.jpg')}
             alt="Sublimarte Studio Logo"
@@ -107,8 +107,8 @@ export function Navbar() {
           />
         </div>
 
-        {/* CENTER NAV - Centered relative to navbar on desktop */}
-        <div className="hidden md:flex items-center justify-center gap-8 absolute left-1/2 -translate-x-1/2 h-full z-0">
+        {/* CENTER NAV - Centered relative to navbar on desktop (lg screens) */}
+        <div className="hidden lg:flex items-center justify-center gap-4 lg:gap-8 absolute left-1/2 -translate-x-1/2 h-full z-0">
           {navItems.map((item) => (
             <a
               key={item}
@@ -132,7 +132,7 @@ export function Navbar() {
           </button>
           
           <button
-            className="w-10 h-10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition-all duration-300 hidden md:flex cursor-pointer rounded-full"
+            className="w-10 h-10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition-all duration-300 hidden lg:flex cursor-pointer rounded-full"
             aria-label="Mi Cuenta"
           >
             <User size={18} />
@@ -162,7 +162,7 @@ export function Navbar() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 md:hidden"
+              className="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 lg:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -170,7 +170,7 @@ export function Navbar() {
             />
             {/* Menu Sliding Panel */}
             <motion.div
-              className="absolute top-16 sm:top-20 left-0 right-0 bg-neutral-950 border-b border-neutral-900/80 p-6 flex flex-col gap-1.5 md:hidden z-50 shadow-2xl overflow-y-auto max-h-[80vh]"
+              className="absolute top-16 sm:top-20 left-0 right-0 bg-neutral-950 border-b border-neutral-900/80 p-6 flex flex-col gap-1.5 lg:hidden z-50 shadow-2xl overflow-y-auto max-h-[80vh]"
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}

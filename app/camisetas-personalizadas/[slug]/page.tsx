@@ -223,7 +223,7 @@ export default async function DepartmentPage({ params }: Props) {
             Proceso de diseño y fabricación ultra-rápido para todos los clientes en {dept.name}.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {[
               {
                 step: '01',
