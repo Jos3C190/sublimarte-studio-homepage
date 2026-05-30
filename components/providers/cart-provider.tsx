@@ -50,16 +50,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, [cart])
 
   const addToCart = (product: { name: string; price: number; image: string }, size: string) => {
-    setCart((prevCart) => {
-      const existingIdx = prevCart.findIndex(item => item.name === product.name && item.size === size)
-      if (existingIdx > -1) {
-        const newCart = [...prevCart]
-        newCart[existingIdx].qty += 1
-        return newCart
-      } else {
-        return [...prevCart, { id: Math.random().toString(), name: product.name, price: product.price, size, qty: 1, image: product.image }]
-      }
-    })
+    // Funcionalidad de agregar deshabilitada temporalmente para la demostración del prototipo
     setIsCartOpen(true)
   }
 
