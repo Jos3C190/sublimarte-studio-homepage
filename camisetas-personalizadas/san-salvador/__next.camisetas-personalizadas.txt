@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[60379,["/sublimarte-studio-homepage/_next/static/chunks/0t3i6v_oq5obl.js","/sublimarte-studio-homepage/_next/static/chunks/0d.61xzsp-wl..js","/sublimarte-studio-homepage/_next/static/chunks/0i4zd307-ufyw.js"],"default"]
-3:I[44345,["/sublimarte-studio-homepage/_next/static/chunks/0t3i6v_oq5obl.js","/sublimarte-studio-homepage/_next/static/chunks/0d.61xzsp-wl..js","/sublimarte-studio-homepage/_next/static/chunks/0i4zd307-ufyw.js"],"default"]
+2:I[60379,["/sublimarte-studio-homepage/_next/static/chunks/015-654qveuo1.js","/sublimarte-studio-homepage/_next/static/chunks/0d.61xzsp-wl..js","/sublimarte-studio-homepage/_next/static/chunks/0i4zd307-ufyw.js"],"default"]
+3:I[44345,["/sublimarte-studio-homepage/_next/static/chunks/015-654qveuo1.js","/sublimarte-studio-homepage/_next/static/chunks/0d.61xzsp-wl..js","/sublimarte-studio-homepage/_next/static/chunks/0i4zd307-ufyw.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"kMdUjigowZTbWdmU5FNUU"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"Max3utKmmgtKhOu02ujnT"}
