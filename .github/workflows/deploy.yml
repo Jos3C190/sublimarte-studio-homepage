@@ -31,7 +31,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build with Next.js 🏗️
-        run: pnpm build
+        run: pnpm build && touch out/.nojekyll
         env:
           # Establecemos el basePath para el dominio gratuito de GitHub Pages
           NEXT_PUBLIC_BASE_PATH: /sublimarte-studio-homepage
