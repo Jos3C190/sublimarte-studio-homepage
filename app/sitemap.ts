@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 import { departmentsData } from '@/lib/products'
 
+export const dynamic = 'force-static'
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://sublimarte.sv'
   

@@ -3,9 +3,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Instagram } from 'lucide-react'
+import { getAssetPath } from '@/lib/utils'
 
 export function InstagramGallery() {
-  const instagramImages = [
+  const rawInstagramImages = [
     '/Instagram_Posts/image_post1.jpg',
     '/Instagram_Posts/image_post2.jpg',
     '/Instagram_Posts/image_post3.jpg',
@@ -14,6 +15,8 @@ export function InstagramGallery() {
     '/Instagram_Posts/image_post6.jpg',
     '/Instagram_Posts/image_post7.jpg',
   ]
+
+  const instagramImages = rawInstagramImages.map(getAssetPath)
 
   return (
     <section className="bg-white py-12 md:py-20 px-4 md:px-8 border-y border-neutral-100 overflow-hidden">

@@ -3,11 +3,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useCart } from '../providers/cart-provider'
+import { getAssetPath } from '@/lib/utils'
 
 export function NewArrivals() {
   const { addToCart } = useCart()
 
-  const newArrivalsData = [
+  const rawNewArrivalsData = [
     {
       id: 'na1',
       name: "Vinland Saga Premium Tee",
@@ -45,6 +46,12 @@ export function NewArrivals() {
       tag: "Streetwear Icon"
     }
   ]
+
+  const newArrivalsData = rawNewArrivalsData.map(item => ({
+    ...item,
+    frontImage: getAssetPath(item.frontImage),
+    backImage: getAssetPath(item.backImage)
+  }))
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },

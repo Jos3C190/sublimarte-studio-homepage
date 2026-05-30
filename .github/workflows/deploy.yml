@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Cambia esto si tu rama principal se llama diferente (ej: master)
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Install pnpm 📦
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Setup Node 💻
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies 🚀
+        run: pnpm install --frozen-lockfile
+
+      - name: Build with Next.js 🏗️
+        run: pnpm build
+        env:
+          # Establecemos el basePath para el dominio gratuito de GitHub Pages
+          NEXT_PUBLIC_BASE_PATH: /sublimarte-studio-homepage
+          NODE_ENV: production
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: out # Next.js exporta a la carpeta 'out' por defecto
+          branch: gh-pages

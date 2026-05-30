@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Search, User, ShoppingCart, Menu, X, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useCart } from '../providers/cart-provider'
+import { getAssetPath } from '@/lib/utils'
 
 interface NavNode {
   name: string
@@ -100,7 +101,7 @@ export function Navbar() {
         {/* LOGO - Left on Desktop, Center on Mobile */}
         <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex-shrink-0 flex items-center h-12 md:h-16 z-10">
           <img
-            src="/logo.jpg"
+            src={getAssetPath('/logo.jpg')}
             alt="Sublimarte Studio Logo"
             className="h-full object-contain hover:scale-[1.03] active:scale-95 transition-all duration-300 cursor-pointer"
           />

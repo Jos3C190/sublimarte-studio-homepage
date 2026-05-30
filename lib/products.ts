@@ -1,3 +1,5 @@
+import { getAssetPath } from './utils'
+
 export interface Product {
   id: string
   name: string
@@ -6,7 +8,7 @@ export interface Product {
   imageIdx: number
 }
 
-export const featuredImages = [
+const rawFeaturedImages = [
   '/Featured/Attack_Of_Titan_desing1_Black.webp',
   '/Featured/Attack_Of_Titan_desing2_Black.webp',
   '/Featured/Attack_Of_Titan_desing3_Black.webp',
@@ -17,7 +19,7 @@ export const featuredImages = [
   '/Featured/Spiderman_Desing3_Black.webp'
 ]
 
-export const featuredImagesBack = [
+const rawFeaturedImagesBack = [
   '/Featured/Attack_Of_Titan_desing1_White.jpg',
   '/Featured/Attack_Of_Titan_desing2_White.jpg',
   '/Featured/Attack_Of_Titan_desing3_White.jpg',
@@ -27,6 +29,9 @@ export const featuredImagesBack = [
   '/Featured/Spiderman_Desing2_White.webp',
   '/Featured/Spiderman_Desing3_White.webp'
 ]
+
+export const featuredImages = rawFeaturedImages.map(getAssetPath)
+export const featuredImagesBack = rawFeaturedImagesBack.map(getAssetPath)
 
 export const productsData: Product[] = [
   { id: 'p1', name: "Attack on Titan Shingeki", category: "Anime", price: 24.99, imageIdx: 0 },

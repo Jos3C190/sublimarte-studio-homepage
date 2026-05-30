@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { getAssetPath } from '@/lib/utils'
 
 export function Footer() {
   const socialLinks = [
@@ -61,7 +62,7 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-12 pb-12 border-b border-neutral-900">
           <div className="flex items-center h-16">
             <img
-              src="/logo.jpg"
+              src={getAssetPath('/logo.jpg')}
               alt="Sublimarte Studio Logo"
               className="h-full object-contain"
             />
