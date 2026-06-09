@@ -278,7 +278,7 @@ export function ProductListTemplate({
                 }`}
             />
             {/* Dark overlay for contrast */}
-            <div className="absolute inset-0 bg-neutral-950/75" />
+            <div className="absolute inset-0 bg-black opacity-70 md:opacity-15" />
           </div>
         ) : (
           <div className="absolute inset-0 opacity-15 pointer-events-none select-none">
