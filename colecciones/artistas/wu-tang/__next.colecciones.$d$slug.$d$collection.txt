@@ -2,4 +2,4 @@
 2:I[60379,["/sublimarte-studio-homepage/_next/static/chunks/0-1kyc7hx_0ut.js","/sublimarte-studio-homepage/_next/static/chunks/0d.61xzsp-wl..js","/sublimarte-studio-homepage/_next/static/chunks/0pxld3mtwi6ut.js"],"default"]
 3:I[44345,["/sublimarte-studio-homepage/_next/static/chunks/0-1kyc7hx_0ut.js","/sublimarte-studio-homepage/_next/static/chunks/0d.61xzsp-wl..js","/sublimarte-studio-homepage/_next/static/chunks/0pxld3mtwi6ut.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"e8g3BJUxdU3nYzjzq_v-i"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"Vvsj4plN8oh9YhCDZQ0nM"}
