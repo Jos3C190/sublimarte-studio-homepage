@@ -12,6 +12,7 @@ import {
   featuredImagesBack
 } from '@/lib/products'
 import { CartActions } from '@/app/camisetas-personalizadas/[slug]/cart-actions'
+import { getAssetPath } from '@/lib/utils'
 
 export interface PreselectedFilters {
   garmentType?: 'camisetas' | 'hoodies' | 'accesorios'
@@ -266,7 +267,7 @@ export function ProductListTemplate({
         {videoUrl ? (
           <div className="absolute inset-0 pointer-events-none select-none motion-reduce:hidden">
             <video
-              src={videoUrl}
+              src={getAssetPath(videoUrl)}
               autoPlay
               muted
               loop
