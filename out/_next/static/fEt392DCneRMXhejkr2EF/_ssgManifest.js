@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Faccesorios\u002F[theme]","\u002Fcamisetas-personalizadas\u002F[slug]","\u002Fcamisetas\u002F[theme]","\u002Fcolecciones\u002F[slug]","\u002Fcolecciones\u002F[slug]\u002F[collection]","\u002Fhoodies\u002F[theme]","\u002Fproducto\u002F[slug]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

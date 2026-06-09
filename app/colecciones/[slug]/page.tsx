@@ -1,8 +1,10 @@
 import React from 'react'
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { productsData, featuredImages, featuredImagesBack } from '@/lib/products'
-import { CartActions } from '@/app/camisetas-personalizadas/[slug]/cart-actions'
+import { FolderKanban } from 'lucide-react'
+import { collectionsData } from '@/lib/products'
+import { getAssetPath } from '@/lib/utils'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -24,6 +26,21 @@ const collectionsMap: Record<string, { name: string; title: string; desc: string
     name: 'Deportes',
     title: 'Streetwear Deportivo y Skateboarding Retro | Sublimarte Studio',
     desc: 'Diseños urbanos premium inspirados en el baloncesto clásico, streetwear urbano y skateboarding. Alta calidad textil 100% de algodón peinado.'
+  },
+  peliculas: {
+    name: 'Películas',
+    title: 'Camisetas de Películas y Cine Premium | Sublimarte Studio',
+    desc: 'Camisetas urbanas inspiradas en clásicos del cine, ciencia ficción, superhéroes y la cultura pop de la gran pantalla.'
+  },
+  series: {
+    name: 'Series',
+    title: 'Camisetas de Series y Cultura Pop | Sublimarte Studio',
+    desc: 'Camisetas premium inspiradas en tus series favoritas de streaming. Diseños exclusivos con alta durabilidad y estilo urbano.'
+  },
+  videojuegos: {
+    name: 'Videojuegos',
+    title: 'Camisetas Gamer y Retro Videojuegos | Sublimarte Studio',
+    desc: 'Colección gamer premium inspirada en consolas clásicas y los videojuegos más populares de la actualidad. Diseños 100% algodón.'
   }
 }
 
@@ -63,7 +80,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function CollectionPage({ params }: Props) {
+export default async function ThemePage({ params }: Props) {
   const { slug } = await params
   const config = collectionsMap[slug]
 
@@ -71,9 +88,9 @@ export default async function CollectionPage({ params }: Props) {
     notFound()
   }
 
-  // Filter products by category
-  const filteredProducts = productsData.filter(
-    (p) => p.category.toLowerCase() === config.name.toLowerCase()
+  // Filter collections by theme
+  const filteredCollections = collectionsData.filter(
+    (c) => c.theme.toLowerCase() === slug.toLowerCase()
   )
 
   // Construct schemas
@@ -139,7 +156,7 @@ export default async function CollectionPage({ params }: Props) {
             className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4"
             style={{ fontFamily: 'var(--font-barlow-condensed)' }}
           >
-            Colección {config.name}
+            Colecciones de {config.name}
           </h1>
           <p className="text-sm md:text-lg text-neutral-400 max-w-2xl leading-relaxed">
             {config.desc}
@@ -150,52 +167,47 @@ export default async function CollectionPage({ params }: Props) {
       {/* Catalog Grid */}
       <section className="bg-white py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          {filteredProducts.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-lg text-neutral-500 mb-4">No se encontraron productos en esta colección temporalmente.</p>
-              <a href="/" className="bg-black text-white px-6 py-3 uppercase text-xs font-bold tracking-wider rounded-full hover:bg-[#FFDE00] hover:text-black transition-colors duration-300">
+          {filteredCollections.length === 0 ? (
+            <div className="text-center py-20 flex flex-col items-center justify-center gap-4">
+              <FolderKanban size={48} className="text-neutral-300" />
+              <p className="text-lg text-neutral-500">Pronto agregaremos colecciones oficiales de este tema.</p>
+              <a href="/" className="bg-black text-white px-6 py-3 uppercase text-xs font-bold tracking-wider rounded-full hover:bg-[#FFDE00] hover:text-black transition-colors duration-300 mt-2">
                 Volver a inicio
               </a>
             </div>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-              {filteredProducts.map((product) => (
-                <div
-                  key={product.id}
-                  className="flex flex-col gap-2 md:gap-4 border border-neutral-100 p-2 md:p-4 rounded-2xl hover:shadow-2xl hover:shadow-neutral-900/5 hover:-translate-y-1 hover:border-neutral-200 transition-all duration-500 bg-white group/card"
-                >
-                  <div className="aspect-square bg-[#f5f5f5] flex items-center justify-center overflow-hidden rounded-lg relative group">
-                    <img
-                      src={featuredImages[product.imageIdx]}
-                      alt={product.name}
-                      className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-700 ease-out absolute inset-0"
-                      loading="lazy"
-                    />
-                    <img
-                      src={featuredImagesBack[product.imageIdx]}
-                      alt={`${product.name} detail`}
-                      className="w-full h-full object-cover scale-100 group-hover:scale-105 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out absolute inset-0 z-10"
-                      loading="lazy"
-                    />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {filteredCollections.map((collection) => {
+                return (
+                  <div
+                    key={collection.slug}
+                    className="border border-neutral-100 p-4 rounded-3xl hover:shadow-2xl hover:shadow-neutral-900/5 hover:-translate-y-1 hover:border-neutral-200 transition-all duration-500 bg-white group/card"
+                  >
+                    <Link href={`/colecciones/${slug}/${collection.slug}`} className="flex flex-row items-center gap-4 w-full">
+                      <div className="flex-shrink-0 bg-[#f5f5f5] flex items-center justify-center overflow-hidden rounded-2xl relative group" style={{ width: '112px', height: '112px', minWidth: '112px', minHeight: '112px' }}>
+                        <img
+                          src={getAssetPath(collection.image)}
+                          alt={collection.name}
+                          className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-700 ease-out absolute inset-0"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center p-2">
+                          <span className="text-[10px] text-[#FFDE00] font-black uppercase tracking-wider">Ver →</span>
+                        </div>
+                      </div>
+                      <div className="flex-1 flex flex-col gap-1 text-left">
+                        <span className="text-[9px] uppercase tracking-widest text-neutral-400 font-bold">
+                          {config.name}
+                        </span>
+                        <h3 className="font-black text-lg sm:text-xl uppercase tracking-tighter text-neutral-900 mt-1 leading-tight">
+                          {collection.name}
+                        </h3>
+                        <p className="text-xs text-neutral-500 leading-normal line-clamp-2">{collection.description}</p>
+                      </div>
+                    </Link>
                   </div>
-                  <div className="flex flex-col gap-0.5 md:gap-2 text-left">
-                    <span className="text-[8px] md:text-[9px] uppercase tracking-widest text-neutral-400 font-semibold">
-                      {product.category}
-                    </span>
-                    <h3 className="font-bold text-[11px] md:text-sm uppercase tracking-wide truncate group-hover/card:text-[#FFDE00] transition-colors duration-300">
-                      {product.name}
-                    </h3>
-                    <p className="text-xs text-neutral-400 hidden sm:block leading-relaxed">Impresión de definición ultra premium en cortes holgados streetwear.</p>
-                  </div>
-
-                  <CartActions
-                    productId={product.id}
-                    productName={product.name}
-                    productPrice={product.price}
-                    productImage={featuredImages[product.imageIdx]}
-                  />
-                </div>
-              ))}
+                )
+              })}
             </div>
           )}
         </div>

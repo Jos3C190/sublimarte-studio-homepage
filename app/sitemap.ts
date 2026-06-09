@@ -5,7 +5,7 @@ export const dynamic = 'force-static'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://sublimarte.sv'
-  
+
   // Collections list
   const collections = ['anime', 'artistas', 'deportes']
 
@@ -23,6 +23,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
+  const categories = ['camisetas', 'hoodies', 'accesorios']
+  const themes = ['anime', 'peliculas', 'videojuegos', 'deportes', 'artistas', 'series']
+
+  const categoryUrls = categories.flatMap((cat) => [
+    {
+      url: `${baseUrl}/${cat}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    ...themes.map((theme) => ({
+      url: `${baseUrl}/${cat}/${theme}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }))
+  ])
+
   return [
     {
       url: baseUrl,
@@ -32,5 +50,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...collectionUrls,
     ...departmentUrls,
+    ...categoryUrls,
   ]
 }
+

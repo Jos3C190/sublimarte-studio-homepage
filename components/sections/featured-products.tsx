@@ -1,9 +1,10 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useCart } from '../providers/cart-provider'
-import { productsData, featuredImages, featuredImagesBack } from '@/lib/products'
+import { productsData, productsDetailData, featuredImages, featuredImagesBack } from '@/lib/products'
 
 export function FeaturedProducts() {
   const { addToCart, selectedSizes, setSelectedSizes } = useCart()
@@ -58,7 +59,7 @@ export function FeaturedProducts() {
                 variants={fadeInUp}
                 className="flex flex-col gap-2 md:gap-4 border border-neutral-100 p-2 md:p-4 rounded-2xl hover:shadow-2xl hover:shadow-neutral-900/5 hover:-translate-y-1 hover:border-neutral-200 transition-all duration-500 bg-white group/card"
               >
-                <div className="aspect-square bg-[#f5f5f5] flex items-center justify-center overflow-hidden rounded-lg group relative">
+                <Link href={`/producto/${productsDetailData.find(d => d.id === product.id)?.slug ?? product.id}`} className="aspect-square bg-[#f5f5f5] flex items-center justify-center overflow-hidden rounded-lg group relative">
                   {/* Front Image */}
                   <img
                     src={featuredImages[product.imageIdx]}
@@ -73,7 +74,7 @@ export function FeaturedProducts() {
                     className="w-full h-full object-cover scale-100 group-hover:scale-105 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out absolute inset-0 z-10"
                     loading="lazy"
                   />
-                </div>
+                </Link>
                 <div className="flex flex-col gap-0.5 md:gap-2 text-left">
                   <span className="text-[8px] md:text-[9px] uppercase tracking-widest text-neutral-400 font-semibold">
                     {product.category}

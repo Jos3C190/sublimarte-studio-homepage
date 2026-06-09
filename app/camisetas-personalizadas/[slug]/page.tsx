@@ -1,7 +1,8 @@
 import React from 'react'
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { departmentsData, productsData, featuredImages, featuredImagesBack } from '@/lib/products'
+import { departmentsData, productsData, productsDetailData, featuredImages, featuredImagesBack } from '@/lib/products'
 import { CartActions } from './cart-actions'
 
 interface Props {
@@ -271,44 +272,49 @@ export default async function DepartmentPage({ params }: Props) {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-            {productsData.map((product) => (
-              <div
-                key={product.id}
-                className="flex flex-col gap-2 md:gap-4 border border-neutral-100 p-2 md:p-4 rounded-2xl bg-white hover:shadow-2xl hover:shadow-neutral-900/5 hover:-translate-y-1 hover:border-neutral-200 transition-all duration-500 group/card"
-              >
-                <div className="aspect-square bg-[#f5f5f5] flex items-center justify-center overflow-hidden rounded-lg relative group">
-                  <img
-                    src={featuredImages[product.imageIdx]}
-                    alt={product.name}
-                    className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-700 ease-out absolute inset-0"
-                    loading="lazy"
-                  />
-                  <img
-                    src={featuredImagesBack[product.imageIdx]}
-                    alt={`${product.name} detail`}
-                    className="w-full h-full object-cover scale-100 group-hover:scale-105 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out absolute inset-0 z-10"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="flex flex-col gap-0.5 md:gap-2 text-left">
-                  <span className="text-[8px] md:text-[9px] uppercase tracking-widest text-neutral-400 font-semibold">
-                    {product.category}
-                  </span>
-                  <h3 className="font-bold text-[11px] md:text-sm uppercase tracking-wide truncate group-hover/card:text-[#FFDE00] transition-colors duration-300">
-                    {product.name}
-                  </h3>
-                  <p className="text-xs text-neutral-400 hidden sm:block leading-relaxed">Streetwear premium confeccionado en 100% algodón de alta densidad.</p>
-                </div>
+            {productsData.map((product) => {
+              const productSlug = productsDetailData.find((d) => d.id === product.id)?.slug ?? product.id
+              return (
+                <div
+                  key={product.id}
+                  className="flex flex-col gap-2 md:gap-4 border border-neutral-100 p-2 md:p-4 rounded-2xl bg-white hover:shadow-2xl hover:shadow-neutral-900/5 hover:-translate-y-1 hover:border-neutral-200 transition-all duration-500 group/card"
+                >
+                  <Link href={`/producto/${productSlug}`} className="flex flex-col gap-2 md:gap-4">
+                    <div className="aspect-square bg-[#f5f5f5] flex items-center justify-center overflow-hidden rounded-lg relative group">
+                      <img
+                        src={featuredImages[product.imageIdx]}
+                        alt={product.name}
+                        className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-700 ease-out absolute inset-0"
+                        loading="lazy"
+                      />
+                      <img
+                        src={featuredImagesBack[product.imageIdx]}
+                        alt={`${product.name} detail`}
+                        className="w-full h-full object-cover scale-100 group-hover:scale-105 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out absolute inset-0 z-10"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-0.5 md:gap-2 text-left">
+                      <span className="text-[8px] md:text-[9px] uppercase tracking-widest text-neutral-400 font-semibold">
+                        {product.category}
+                      </span>
+                      <h3 className="font-bold text-[11px] md:text-sm uppercase tracking-wide truncate group-hover/card:text-[#FFDE00] transition-colors duration-300">
+                        {product.name}
+                      </h3>
+                      <p className="text-xs text-neutral-400 hidden sm:block leading-relaxed">Streetwear premium confeccionado en 100% algodón de alta densidad.</p>
+                    </div>
+                  </Link>
 
-                {/* Client Cart Actions Wrapper Component */}
-                <CartActions 
-                  productId={product.id} 
-                  productName={product.name} 
-                  productPrice={product.price} 
-                  productImage={featuredImages[product.imageIdx]} 
-                />
-              </div>
-            ))}
+                  {/* Client Cart Actions Wrapper Component */}
+                  <CartActions 
+                    productId={product.id} 
+                    productName={product.name} 
+                    productPrice={product.price} 
+                    productImage={featuredImages[product.imageIdx]} 
+                  />
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

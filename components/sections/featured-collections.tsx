@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ChevronRight } from 'lucide-react'
 
@@ -14,7 +15,14 @@ export function FeaturedCollections() {
     'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmpxOTFuN2IzcDQ1M3J2eXU4OW1pdWQwNXRlaG1udG03azV4emJjbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SFPQxFOlyN9NBQ5oh6/giphy.gif'  // Videojuegos
   ]
 
-  const collections = ['Anime', 'Artistas', 'Deportes', 'Series', 'Películas', 'Videojuegos']
+  const collections = [
+    { name: 'Anime', slug: 'anime' },
+    { name: 'Artistas', slug: 'artistas' },
+    { name: 'Deportes', slug: 'deportes' },
+    { name: 'Series', slug: 'series' },
+    { name: 'Películas', slug: 'peliculas' },
+    { name: 'Videojuegos', slug: 'videojuegos' }
+  ]
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -58,43 +66,44 @@ export function FeaturedCollections() {
           whileInView="visible"
         >
           {collections.map((collection, idx) => (
-            <motion.div
-              key={collection}
-              variants={fadeInUp}
-              className="estilo-card relative aspect-[2.4/1] md:aspect-[3/4] overflow-hidden group rounded-2xl border border-neutral-100 cursor-pointer hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 bg-black"
-            >
-              {/* Background Image / GIF Container */}
-              <div className="absolute inset-0 w-full h-full overflow-hidden" style={{ borderRadius: 'inherit' }}>
-                <img
-                  src={collectionImages[idx]}
-                  alt={collection}
-                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
-                  style={{ borderRadius: 'inherit' }}
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Premium Gradient Overlay to secure legibility of GIFs and backgrounds */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/5 group-hover:via-black/45 transition-colors duration-300" />
-
-              {/* Card Content Layer */}
-              <div className="absolute inset-0 flex flex-col justify-between p-5 md:p-6 z-10 text-left">
-                {/* Top Metadata Row */}
-                <div className="flex justify-end items-start opacity-80 group-hover:opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                  <ChevronRight className="text-white w-4 h-4 md:w-5 md:h-5 transform -translate-x-2 group-hover:translate-x-0 transition-transform duration-300" />
+            <Link key={collection.slug} href={`/colecciones/${collection.slug}`}>
+              <motion.div
+                variants={fadeInUp}
+                className="estilo-card relative aspect-[2.4/1] md:aspect-[3/4] overflow-hidden group rounded-2xl border border-neutral-100 cursor-pointer hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 bg-black"
+              >
+                {/* Background Image / GIF Container */}
+                <div className="absolute inset-0 w-full h-full overflow-hidden" style={{ borderRadius: 'inherit' }}>
+                  <img
+                    src={collectionImages[idx]}
+                    alt={collection.name}
+                    className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                    style={{ borderRadius: 'inherit' }}
+                    loading="lazy"
+                  />
                 </div>
 
-                {/* Bottom Category Info Row */}
-                <div className="mt-auto flex flex-col gap-1">
-                  <span className="text-[9px] md:text-[10px] tracking-[0.25em] text-white/50 uppercase font-black leading-none">
-                    Colección
-                  </span>
-                  <h3 className="text-xl md:text-3xl font-black uppercase text-white tracking-tighter leading-none group-hover:text-[#FFDE00] transition-colors duration-300">
-                    {collection}
-                  </h3>
+                {/* Premium Gradient Overlay to secure legibility of GIFs and backgrounds */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/5 group-hover:via-black/45 transition-colors duration-300" />
+
+                {/* Card Content Layer */}
+                <div className="absolute inset-0 flex flex-col justify-between p-5 md:p-6 z-10 text-left">
+                  {/* Top Metadata Row */}
+                  <div className="flex justify-end items-start opacity-80 group-hover:opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                    <ChevronRight className="text-white w-4 h-4 md:w-5 md:h-5 transform -translate-x-2 group-hover:translate-x-0 transition-transform duration-300" />
+                  </div>
+
+                  {/* Bottom Category Info Row */}
+                  <div className="mt-auto flex flex-col gap-1">
+                    <span className="text-[9px] md:text-[10px] tracking-[0.25em] text-white/50 uppercase font-black leading-none">
+                      Colección
+                    </span>
+                    <h3 className="text-xl md:text-3xl font-black uppercase text-white tracking-tighter leading-none group-hover:text-[#FFDE00] transition-colors duration-300">
+                      {collection.name}
+                    </h3>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
       </div>

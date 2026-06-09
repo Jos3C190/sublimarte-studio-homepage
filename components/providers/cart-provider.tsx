@@ -17,7 +17,7 @@ interface CartContextType {
   setIsCartOpen: (open: boolean) => void
   selectedSizes: Record<string, string>
   setSelectedSizes: React.Dispatch<React.SetStateAction<Record<string, string>>>
-  addToCart: (product: { name: string; price: number; image: string }, size: string) => void
+  addToCart: (product: { name: string; price: number; image: string }, size: string, quantity?: number) => void
   updateQty: (id: string, delta: number) => void
   removeFromCart: (id: string) => void
   totalCartQty: number
@@ -49,8 +49,28 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem('sublimarte_cart', JSON.stringify(cart))
   }, [cart])
 
-  const addToCart = (product: { name: string; price: number; image: string }, size: string) => {
-    // Funcionalidad de agregar deshabilitada temporalmente para la demostración del prototipo
+  const addToCart = (product: { name: string; price: number; image: string }, size: string, quantity: number = 1) => {
+    setCart((prevCart) => {
+      const existingItemIndex = prevCart.findIndex(
+        (item) => item.name === product.name && item.size === size
+      )
+
+      if (existingItemIndex > -1) {
+        return prevCart.map((item, idx) =>
+          idx === existingItemIndex ? { ...item, qty: item.qty + quantity } : item
+        )
+      }
+
+      const newItem: CartItem = {
+        id: `${product.name}-${size}-${Date.now()}`,
+        name: product.name,
+        price: product.price,
+        size: size,
+        qty: quantity,
+        image: product.image,
+      }
+      return [...prevCart, newItem]
+    })
     setIsCartOpen(true)
   }
 

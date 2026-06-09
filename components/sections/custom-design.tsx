@@ -1,13 +1,9 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 
 export function CustomDesignSection() {
-  const handleScrollToCatalog = () => {
-    const catalogSection = document.getElementById('catalog')
-    catalogSection?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <section id="personalizacion" className="bg-[#050505] text-white py-16 md:py-28 px-4 md:px-8 relative overflow-hidden border-t border-neutral-900">
       {/* Soft Ambient Light Orb */}
@@ -45,12 +41,12 @@ export function CustomDesignSection() {
             </svg>
             WhatsApp
           </a>
-          <button
-            onClick={handleScrollToCatalog}
-            className="border border-white/10 text-white hover:text-[#FFDE00] hover:border-[#FFDE00] px-8 py-3.5 uppercase text-[10px] font-black tracking-widest hover:bg-[#FFDE00]/5 transition-colors duration-300 rounded-full hover:scale-105 transform active:scale-95 cursor-pointer flex items-center justify-center"
+          <Link
+            href="/catalogo"
+            className="border border-white/10 text-white hover:text-[#FFDE00] hover:border-[#FFDE00] px-8 py-3.5 uppercase text-[10px] font-black tracking-widest hover:bg-[#FFDE00]/5 transition-colors duration-300 rounded-full hover:scale-105 transform active:scale-95 cursor-pointer flex items-center justify-center text-center"
           >
             Ver Catálogo
-          </button>
+          </Link>
         </div>
       </div>
     </section>

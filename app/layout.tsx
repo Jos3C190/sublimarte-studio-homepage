@@ -43,8 +43,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className="bg-white">
-      <body className={`${_spaceGrotesk.variable} ${_barlowCondensed.variable} font-sans antialiased bg-white text-black`}>
+    <html lang="es" className="bg-white" suppressHydrationWarning>
+      <body suppressHydrationWarning className={`${_spaceGrotesk.variable} ${_barlowCondensed.variable} font-sans antialiased bg-white text-black`}>
         <CartProvider>
           <AnnouncementBar />
           <Navbar />
