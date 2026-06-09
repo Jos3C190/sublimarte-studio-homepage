@@ -274,11 +274,11 @@ export function ProductListTemplate({
               playsInline
               onPlay={() => setVideoReady(true)}
               style={videoStyle}
-              className={`${videoClassName} transition-opacity duration-1000 ${videoReady ? 'opacity-15' : 'opacity-0'
+              className={`${videoClassName} transition-opacity duration-1000 ${videoReady ? 'opacity-25 md:opacity-15' : 'opacity-0'
                 }`}
             />
             {/* Dark overlay for contrast */}
-            <div className="absolute inset-0 bg-neutral-950/85" />
+            <div className="absolute inset-0 bg-neutral-950/75" />
           </div>
         ) : (
           <div className="absolute inset-0 opacity-15 pointer-events-none select-none">
