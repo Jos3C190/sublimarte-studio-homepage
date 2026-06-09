@@ -274,11 +274,11 @@ export function ProductListTemplate({
               playsInline
               onPlay={() => setVideoReady(true)}
               style={videoStyle}
-              className={`${videoClassName} transition-opacity duration-1000 ${videoReady ? 'opacity-30 sm:opacity-25 md:opacity-25 lg:opacity-30 xl:opacity-30 2xl:opacity-30' : 'opacity-30'
+              className={`${videoClassName} transition-opacity duration-1000 ${videoReady ? 'opacity-30 sm:opacity-20 md:opacity-20 lg:opacity-30 xl:opacity-30 2xl:opacity-30' : 'opacity-30'
                 }`}
             />
             {/* Dark overlay for contrast */}
-            <div className="absolute inset-0 bg-black opacity-80 sm:opacity-60 md:opacity-60 lg:opacity-80 xl:opacity-80 2xl:opacity-80" />
+            <div className="absolute inset-0 bg-black opacity-80 sm:opacity-50 md:opacity-50 lg:opacity-80 xl:opacity-80 2xl:opacity-80" />
           </div>
         ) : (
           <div className="absolute inset-0 opacity-15 pointer-events-none select-none">
