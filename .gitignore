@@ -14,3 +14,7 @@ node_modules
 .next/
 out/
 .DS_Store
+
+# Local styling guide
+/public/guia_de_estilos_ux_ui.html
+/public/*_base64.txt
