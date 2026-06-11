@@ -136,10 +136,10 @@ export function Navbar() {
         <div className="flex lg:hidden items-center z-10">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="w-12 h-12 flex items-center justify-center text-neutral-400 hover:text-white transition-all duration-300 cursor-pointer rounded-full hover:bg-neutral-900/50"
+            className="w-11 h-11 flex items-center justify-center text-neutral-400 hover:text-white transition-all duration-300 cursor-pointer rounded-full hover:bg-neutral-900/50"
             aria-label="Alternar menú móvil"
           >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
@@ -199,10 +199,10 @@ export function Navbar() {
         {/* RIGHT ACTIONS - Search, Account, Cart */}
         <div className="flex items-center gap-2 sm:gap-3 z-10 ml-auto md:ml-0">
           <button
-            className="w-12 h-12 lg:w-10 lg:h-10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition-all duration-300 flex cursor-pointer rounded-full"
+            className="w-11 h-11 lg:w-10 lg:h-10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition-all duration-300 flex cursor-pointer rounded-full"
             aria-label="Buscar productos"
           >
-            <Search size={18} className="w-[22px] h-[22px] lg:w-[18px] lg:h-[18px]" />
+            <Search size={18} className="w-5 h-5 lg:w-[18px] lg:h-[18px]" />
           </button>
 
           <button
@@ -215,13 +215,13 @@ export function Navbar() {
           {/* Shopping Cart Icon with Badge */}
           <button
             onClick={() => setIsCartOpen(true)}
-            className="w-12 h-12 lg:w-10 lg:h-10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition-all duration-300 relative cursor-pointer rounded-full"
+            className="w-11 h-11 lg:w-10 lg:h-10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition-all duration-300 relative cursor-pointer rounded-full"
             aria-label="Abrir carrito"
           >
-            <ShoppingCart size={18} className="w-[22px] h-[22px] lg:w-[18px] lg:h-[18px]" />
+            <ShoppingCart size={18} className="w-5 h-5 lg:w-[18px] lg:h-[18px]" />
             {totalCartQty > 0 && (
               <span
-                className="absolute top-2 right-2 lg:top-1.5 lg:right-1.5 bg-[#FFDE00] text-black text-[9px] font-black font-mono w-4 h-4 rounded-full flex items-center justify-center select-none shadow-md"
+                className="absolute top-1.5 right-1.5 bg-[#FFDE00] text-black text-[9px] font-black font-mono w-4 h-4 rounded-full flex items-center justify-center select-none shadow-md"
               >
                 {totalCartQty}
               </span>
