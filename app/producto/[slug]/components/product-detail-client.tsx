@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useMemo, useCallback } from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Star, Check, Truck, Shield, Palette } from 'lucide-react'
 import { useCart } from '@/components/providers/cart-provider'
@@ -109,13 +110,13 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 mb-6 md:mb-10 text-[10px] md:text-xs font-bold uppercase tracking-widest" aria-label="Breadcrumb">
-            <a href="/" className="text-neutral-400 hover:text-black transition-colors duration-300">
+            <Link href="/" className="text-neutral-400 hover:text-black transition-colors duration-300">
               Inicio
-            </a>
+            </Link>
             <span className="text-neutral-300">/</span>
-            <a href={`/colecciones/${product.category.toLowerCase()}`} className="text-neutral-400 hover:text-black transition-colors duration-300">
+            <Link href={`/colecciones/${product.category.toLowerCase()}`} className="text-neutral-400 hover:text-black transition-colors duration-300">
               {product.category}
-            </a>
+            </Link>
             <span className="text-neutral-300">/</span>
             <span className="text-[#FFDE00]">{product.name}</span>
           </nav>

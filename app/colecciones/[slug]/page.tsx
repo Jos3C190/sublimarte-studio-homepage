@@ -147,7 +147,7 @@ export default async function ThemePage({ params }: Props) {
 
         <div className="max-w-7xl mx-auto text-left relative z-10">
           <div className="flex items-center gap-2 mb-4 text-xs font-bold text-[#FFDE00] uppercase tracking-widest">
-            <a href="/" className="hover:underline">Inicio</a>
+            <Link href="/" className="hover:underline">Inicio</Link>
             <span>/</span>
             <span>Colección</span>
           </div>
@@ -171,9 +171,9 @@ export default async function ThemePage({ params }: Props) {
             <div className="text-center py-20 flex flex-col items-center justify-center gap-4">
               <FolderKanban size={48} className="text-neutral-300" />
               <p className="text-lg text-neutral-500">Pronto agregaremos colecciones oficiales de este tema.</p>
-              <a href="/" className="bg-black text-white px-6 py-3 uppercase text-xs font-bold tracking-wider rounded-full hover:bg-[#FFDE00] hover:text-black transition-colors duration-300 mt-2">
+              <Link href="/" className="bg-black text-white px-6 py-3 uppercase text-xs font-bold tracking-wider rounded-full hover:bg-[#FFDE00] hover:text-black transition-colors duration-300 mt-2">
                 Volver a inicio
-              </a>
+              </Link>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
