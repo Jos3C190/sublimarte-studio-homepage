@@ -314,7 +314,7 @@ const demoReviews: ProductReview[][] = [
   [
     { id: 'r8', author: 'Alejandra P.', rating: 5, date: '2026-05-18', comment: 'Se la regalé a mi novio y se volvió su favorita. La calidad se nota desde que la tocas. Muy satisfecha con la compra.', verified: true },
     { id: 'r9', author: 'Josué M.', rating: 4, date: '2026-04-30', comment: 'Buena relación calidad-precio. La tela es resistente y el estampado aguanta bien las lavadas. Le daría 5 estrellas si tuvieran más colores.', verified: true },
-    { id: 'r10', author: 'Karla T.', rating: 5, date: '2026-04-15', comment: 'Me encanta que puedas ver el mockup antes de que la estampen. Quedó exactamente como se veía en la vista previa. ¡Volveré a comprar!' },
+    { id: 'r10', author: 'Karla T.', rating: 5, date: '2026-04-15', comment: 'Me encanta que puedas ver el mockup antes de que la estampen. Quedó exactamente como se veía en la vista previa. ¡Volveré a comprar!', verified: true },
   ],
 ]
 

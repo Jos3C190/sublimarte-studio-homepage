@@ -275,7 +275,7 @@ export function CatalogClient({ initialProducts, defaultGarmentType }: CatalogCl
       </section>
 
       {/* Control bar */}
-      <section className="sticky top-16 sm:top-20 z-40 bg-neutral-50/95 backdrop-blur-md border-b border-neutral-200/50 py-4 px-4 md:px-8">
+      <section className="sticky top-[72px] sm:top-20 z-40 bg-neutral-50/95 backdrop-blur-md border-b border-neutral-200/50 py-4 px-4 md:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           <button
             onClick={() => setMobileFiltersOpen(true)}

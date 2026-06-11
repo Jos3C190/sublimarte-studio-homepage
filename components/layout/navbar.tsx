@@ -129,22 +129,22 @@ export function Navbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 bg-black text-white h-16 sm:h-20 flex items-center px-4 md:px-8 border-b border-neutral-900 transition-all duration-300">
+    <nav className="sticky top-0 z-50 bg-black text-white h-[72px] sm:h-20 flex items-center px-4 md:px-8 border-b border-neutral-900 transition-all duration-300">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between relative h-full">
 
         {/* LEFT MENU - Mobile & Tablet Hamburger */}
         <div className="flex lg:hidden items-center z-10">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="w-10 h-10 flex items-center justify-center text-neutral-400 hover:text-white transition-all duration-300 cursor-pointer rounded-full hover:bg-neutral-900/50"
+            className="w-12 h-12 flex items-center justify-center text-neutral-400 hover:text-white transition-all duration-300 cursor-pointer rounded-full hover:bg-neutral-900/50"
             aria-label="Alternar menú móvil"
           >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* LOGO - Left on Desktop, Center on Mobile/Tablet */}
-        <div className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 flex-shrink-0 flex items-center h-12 lg:h-16 z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 flex-shrink-0 flex items-center h-14 lg:h-16 z-10">
           <img
             src={getAssetPath('/logo.jpg')}
             alt="Sublimarte Studio Logo"
@@ -199,10 +199,10 @@ export function Navbar() {
         {/* RIGHT ACTIONS - Search, Account, Cart */}
         <div className="flex items-center gap-2 sm:gap-3 z-10 ml-auto md:ml-0">
           <button
-            className="w-10 h-10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition-all duration-300 flex cursor-pointer rounded-full"
+            className="w-12 h-12 lg:w-10 lg:h-10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition-all duration-300 flex cursor-pointer rounded-full"
             aria-label="Buscar productos"
           >
-            <Search size={18} />
+            <Search size={18} className="w-[22px] h-[22px] lg:w-[18px] lg:h-[18px]" />
           </button>
 
           <button
@@ -215,13 +215,13 @@ export function Navbar() {
           {/* Shopping Cart Icon with Badge */}
           <button
             onClick={() => setIsCartOpen(true)}
-            className="w-10 h-10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition-all duration-300 relative cursor-pointer rounded-full"
+            className="w-12 h-12 lg:w-10 lg:h-10 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition-all duration-300 relative cursor-pointer rounded-full"
             aria-label="Abrir carrito"
           >
-            <ShoppingCart size={18} />
+            <ShoppingCart size={18} className="w-[22px] h-[22px] lg:w-[18px] lg:h-[18px]" />
             {totalCartQty > 0 && (
               <span
-                className="absolute top-1.5 right-1.5 bg-[#FFDE00] text-black text-[9px] font-black font-mono w-4 h-4 rounded-full flex items-center justify-center select-none shadow-md"
+                className="absolute top-2 right-2 lg:top-1.5 lg:right-1.5 bg-[#FFDE00] text-black text-[9px] font-black font-mono w-4 h-4 rounded-full flex items-center justify-center select-none shadow-md"
               >
                 {totalCartQty}
               </span>
@@ -244,7 +244,7 @@ export function Navbar() {
             />
             {/* Menu Sliding Panel */}
             <motion.div
-              className="absolute top-16 sm:top-20 left-0 right-0 bg-neutral-950 border-b border-neutral-900/80 p-6 flex flex-col gap-1.5 lg:hidden z-50 shadow-2xl overflow-y-auto max-h-[80vh]"
+              className="absolute top-[72px] sm:top-20 left-0 right-0 bg-neutral-950 border-b border-neutral-900/80 p-6 flex flex-col gap-1.5 lg:hidden z-50 shadow-2xl overflow-y-auto max-h-[80vh]"
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
