@@ -2,7 +2,7 @@ import React from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { FolderKanban } from 'lucide-react'
+import { FolderKanban, Truck, Shield, Box } from 'lucide-react'
 import { collectionsData } from '@/lib/products'
 import { getAssetPath } from '@/lib/utils'
 
@@ -214,19 +214,34 @@ export default async function ThemePage({ params }: Props) {
       </section>
 
       {/* Trust & Delivery Ribbons */}
-      <section className="bg-neutral-950 text-white py-12 px-4 md:px-8 border-t border-neutral-800">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-          <div className="flex flex-col gap-2">
-            <span className="text-[#FFDE00] font-black text-lg">01. Envíos Rápidos</span>
-            <p className="text-xs text-neutral-400 leading-relaxed">Enviamos a todo El Salvador vía Express. Envíos gratis por compras mayores a $50.00.</p>
+      <section className="bg-neutral-950 text-white py-6 px-4 md:px-8 border-t border-neutral-900 select-none">
+        <div className="max-w-6xl mx-auto flex flex-row items-center md:items-start justify-between gap-3 md:gap-8 text-left">
+          <div className="flex-1 flex items-center md:items-start gap-2 md:gap-4 min-w-0">
+            <div className="flex-shrink-0 p-1.5 md:p-2 bg-neutral-900 rounded-lg border border-neutral-800/80 text-[#FFDE00]">
+              <Truck className="w-4 h-4 md:w-5 md:h-5" />
+            </div>
+            <div className="min-w-0 flex flex-col justify-center">
+              <span className="text-[10px] md:text-sm font-black uppercase tracking-wider text-[#FFDE00]">Envíos Express</span>
+              <p className="hidden md:block text-[9px] md:text-xs text-neutral-400 leading-snug mt-0.5">Gratis en SV por compras mayores a $50</p>
+            </div>
           </div>
-          <div className="flex flex-col gap-2">
-            <span className="text-[#FFDE00] font-black text-lg">02. Impresión Inalterable</span>
-            <p className="text-xs text-neutral-400 leading-relaxed">Nuestra técnica de sublimación de alta definición garantiza colores que no se decoloran con el lavado.</p>
+          <div className="flex-1 flex items-center md:items-start gap-2 md:gap-4 min-w-0">
+            <div className="flex-shrink-0 p-1.5 md:p-2 bg-neutral-900 rounded-lg border border-neutral-800/80 text-[#FFDE00]">
+              <Shield className="w-4 h-4 md:w-5 md:h-5" />
+            </div>
+            <div className="min-w-0 flex flex-col justify-center">
+              <span className="text-[10px] md:text-sm font-black uppercase tracking-wider text-[#FFDE00]">Impresión HD</span>
+              <p className="hidden md:block text-[9px] md:text-xs text-neutral-400 leading-snug mt-0.5">Colores inalterables con el lavado</p>
+            </div>
           </div>
-          <div className="flex flex-col gap-2">
-            <span className="text-[#FFDE00] font-black text-lg">03. Mockup 3D Gratis</span>
-            <p className="text-xs text-neutral-400 leading-relaxed">Mira cómo se verá tu prenda terminada en 3D antes de imprimirla, totalmente gratis por WhatsApp.</p>
+          <div className="flex-1 flex items-center md:items-start gap-2 md:gap-4 min-w-0">
+            <div className="flex-shrink-0 p-1.5 md:p-2 bg-neutral-900 rounded-lg border border-neutral-800/80 text-[#FFDE00]">
+              <Box className="w-4 h-4 md:w-5 md:h-5" />
+            </div>
+            <div className="min-w-0 flex flex-col justify-center">
+              <span className="text-[10px] md:text-sm font-black uppercase tracking-wider text-[#FFDE00]">Mockup 3D Gratis</span>
+              <p className="hidden md:block text-[9px] md:text-xs text-neutral-400 leading-snug mt-0.5">Previsualiza antes de imprimir</p>
+            </div>
           </div>
         </div>
       </section>
