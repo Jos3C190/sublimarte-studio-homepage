@@ -832,7 +832,7 @@ export function ProductListTemplate({
               <Box className="w-4 h-4 md:w-5 md:h-5" />
             </div>
             <div className="min-w-0 flex flex-col justify-center">
-              <span className="text-[10px] md:text-sm font-black uppercase tracking-wider text-[#FFDE00]">Mockup 3D</span>
+              <span className="text-[10px] md:text-sm font-black uppercase tracking-wider text-[#FFDE00]">Mockup 3D Gratis</span>
               <p className="hidden md:block text-[9px] md:text-xs text-neutral-400 leading-snug mt-0.5">Previsualiza antes de imprimir</p>
             </div>
           </div>
